@@ -19,10 +19,13 @@ from django.urls import path
 from django.conf.urls.static import static
 from django.conf import settings
 from courses.views import CourseList , CourseDetail
+from courses.api import CourseListAPI , CourseDetailAPI
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('course/',CourseList.as_view()),
     path('course/<int:pk>',CourseDetail.as_view()),
+    path('course/api/list',CourseListAPI.as_view()),
+    path('course/api/list/<int:pk>' ,CourseDetailAPI.as_view()),
 ]
 
 
